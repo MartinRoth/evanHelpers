@@ -3,6 +3,7 @@
 #' @return list with three entries, \code{val} the normalized covariate,
 #'  \code{meanCov} the mean of the covariate, and \code{sdCov} its standard
 #'  deviation
+#' @export
 SetNormCovariate <- function(covariate) {
   meanCov <- mean(covariate)
   sdCov   <- sd(covariate)
@@ -15,6 +16,7 @@ SetNormCovariate <- function(covariate) {
 #' existing normCov object
 #' @param covariate The new value of the covariate
 #' @param normCov The normalized covariate object
+#' @export
 GetNormCovariate <- function(covariate, normCov) {
   return((covariate - normCov$meanCov)/normCov$sdCov)
 }
