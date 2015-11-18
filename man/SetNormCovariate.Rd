@@ -9,6 +9,11 @@ SetNormCovariate(covariate)
 \arguments{
 \item{covariate}{Covariate to be normalized}
 }
+\value{
+list with three entries, \code{val} the normalized covariate,
+ \code{meanCov} the mean of the covariate, and \code{sdCov} its standard
+ deviation
+}
 \description{
 Normalizes covariates
 }

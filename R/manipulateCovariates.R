@@ -1,6 +1,6 @@
 #' Normalizes covariates
 #' @param covariate Covariate to be normalized
-#' @value list with three entries, \code{val} the normalized covariate,
+#' @return list with three entries, \code{val} the normalized covariate,
 #'  \code{meanCov} the mean of the covariate, and \code{sdCov} its standard
 #'  deviation
 SetNormCovariate <- function(covariate) {
