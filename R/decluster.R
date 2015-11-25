@@ -10,16 +10,18 @@ declusterSimpleSeparation <- function(time, x, sep) {
   if (class(sep)!="numeric" | length(sep) != 1) stop("sep should be a numeric")
   if (length(time) != length(x)) stop("time and x must have same length")
   n     <- length(x)
-  index <- integer()
+  index <- integer(n)
+  j     <- 1
   i     <- 1
   while (i <= n) {
     sepRange <- which(time %in% seq.int(time[i]-sep,time[i]+sep, by=1 ))
     if (x[i] >= max(x[sepRange])) {
-      index <- c(index, i)
+      index[j] <- i
       i <- max(sepRange) + 1
+      j <- j+1
     } else {
       i <- i+1
     }
   }
-  return(index)
+  return(index[index!=0])
 }
