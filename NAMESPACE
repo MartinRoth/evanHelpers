@@ -2,3 +2,4 @@
 
 export(GetNormCovariate)
 export(SetNormCovariate)
+export(declusterSimpleSeparation)
