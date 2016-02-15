@@ -1,6 +1,9 @@
+library(gamlss)
 library(evanHelpers)
+Sys.sleep(1)
 
 load("./testData.Rdata")
+load("./badTestData.Rdata")
 
 context("Input testing for gamlss modeling")
 test_that("Correct input handling", {
@@ -13,5 +16,6 @@ context("Output testing for gamlss modeling")
 test_that("Testing Box Cox adjustment", {
   expect_equal(GetBoxCoxAdjustment(c(1,2,3)), 0)
   expect_equal_to_reference(GetGamlssTrend(TG ~ pb(year), testData, method = RS(200)), "testGamlssFit.rds" )
+  expect_equal(GetGamlssTrend(TG ~ pb(year), badTestData, method = RS(200)), NULL)
 })
 

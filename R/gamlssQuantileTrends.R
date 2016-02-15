@@ -10,6 +10,7 @@
 #' @import gamlss
 GetGamlssTrend <- function(formula, data, family = "BCCG", ...) {
   if (!family %in% c("BCCG", "SN2")) stop(paste(family, "not available"))
+  result <- tryCatch({
   adjust <- NA
   #responseCol <- formula[[2]]
   #dat <- copy(data)
@@ -30,6 +31,11 @@ GetGamlssTrend <- function(formula, data, family = "BCCG", ...) {
   if (family == "BCCG") values[, fitted := fitted - adjust]
   result = values[, cbind(data[], family, fitted), by = tau]
   #result[, eval(responseCol) := NULL]
+  }, #warning = function(w) {},
+  error = function(e) {
+    result <- NULL
+    return(result)
+  })
   return(result)
 }
 
