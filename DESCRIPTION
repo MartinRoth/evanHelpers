@@ -7,7 +7,12 @@ Depends:
     R (>= 3.2.2)
 Imports:
     data.table,
-    gamlss
+    gamlss,
+    gamlss.dist,
+    sp,
+    rgdal,
+    rgeos,
+    raster
 License: GPL
 LazyData: true
 RoxygenNote: 5.0.1

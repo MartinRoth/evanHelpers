@@ -8,6 +8,7 @@
 #' @export
 #' @import data.table
 #' @import gamlss
+#' @importFrom gamlss.dist gamlss.family
 GetGamlssTrend <- function(formula, data, family = "BCCG", ...) {
   if (!family %in% c("BCCG", "SN2")) stop(paste(family, "not available"))
   result <- tryCatch({
@@ -23,6 +24,7 @@ GetGamlssTrend <- function(formula, data, family = "BCCG", ...) {
   }
   capture.output(fit <- gamlss(formula=formula, data = dat, family = gamlss.family(family), ...))
   params <- list(mu = fit$mu.fv, sigma = fit$sigma.fv, nu = fit$nu.fv)
+  tau <- fitted <- NULL
   values <- data.table(family = family,
                        tau    = rep(c(0.05, 0.5, 0.95), each = nrow(dat)),
                        fitted = c(do.call(paste0("q", family), c(p=0.05, params)),
