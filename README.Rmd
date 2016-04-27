@@ -1,19 +1,31 @@
+---
+output:
+  md_document:
+    variant: markdown_github
+---
+
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-evanHelpers
------------
+
+```{r, echo = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "README-"
+)
+```
+
+## evanHelpers
 
 Helper functions for Extreme Value Analysis of Natural Hazards
 
 [![Build Status](https://travis-ci.org/MartinRoth/evanHelpers.png?branch=master)](https://travis-ci.org/MartinRoth/evanHelpers)
 
 ### For declustering
-
 declusterSimpleSeparation()
 
 ### For the Box-Cox transformation
-
 GetBoxCoxAdjustment()
 
 ### For transforming covariates
-
-SetNormCovariate() GetNormCovariate()
+SetNormCovariate()
+GetNormCovariate()
