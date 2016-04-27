@@ -4,10 +4,10 @@ Version: 0.0.0.9003
 Authors@R: person("Martin", "Roth", email = "roth@knmi.nl", role = c("aut", "cre"))
 Description: What the package does (one paragraph).
 Depends:
-    R (>= 3.2.2)
+    R (>= 3.2.2),
+    gamlss
 Imports:
     data.table,
-    gamlss,
     gamlss.dist,
     sp,
     rgdal,
