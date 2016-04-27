@@ -1,6 +1,5 @@
-library(gamlss)
+#library(gamlss, quietly = TRUE, verbose=FALSE)
 library(evanHelpers)
-Sys.sleep(1)
 
 load("./testData.Rdata")
 load("./badTestData.Rdata")

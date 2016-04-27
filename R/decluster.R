@@ -5,10 +5,10 @@
 #' @return index integer vector of peaks
 #' @export
 declusterSimpleSeparation <- function(time, x, sep) {
-  if (class(time)!="numeric") stop("time should be a numeric vector")
-  if (class(x)!="numeric") stop("x should be a numeric vector")
-  if (class(sep)!="numeric" | length(sep) != 1) stop("sep should be a numeric")
-  if (length(time) != length(x)) stop("time and x must have same length")
+  if (class(time)!="numeric") stop("time should be a numeric vector.")
+  if (class(x)!="numeric") stop("x should be a numeric vector.")
+  if (class(sep)!="numeric" | length(sep) != 1) stop("sep should be a numeric.")
+  if (length(time) != length(x)) stop("time and x must have same length.")
   n     <- length(x)
   index <- integer(n)
   j     <- 1
