@@ -1,4 +1,5 @@
 library(evanHelpers)
+library(data.table)
 context("Testing spatial subsetting")
 
 latArea <- c(4, 6, 4, 4)
@@ -25,3 +26,11 @@ test_that("Correct subsetting", {
 #library(ggplot2)
 #areaFort <- fortify(area)
 #ggplot(areaFort, aes(x = long, y = lat)) + geom_polygon() + geom_point(aes(x = lon), col = 2, data = as.data.frame(points@coords))
+
+context("Closest neighbors")
+
+test_that("Closest neighbor", {
+  point <- data.table(lon = 7, lat = 54)
+  grid <- data.table(lon = c(2, 7, 9), lat = c(52, 54, 56), pointID = 1 : 3)
+  expect_equal(FindClosestGridPoints(point, grid)[, pointID], 2)
+})
