@@ -68,3 +68,19 @@ gClip <- function(shp, bb){
   }
   return(gIntersection(shp, b_poly, byid = T))
 }
+
+#' Return closest grid point
+#' @param pointData Data.table containing lon and lat of the point of interest
+#' @param gridData Data.table containing lon, lat, and pointID of the grid
+#' @param k Integer How many points should be returned
+#' @importFrom geosphere distGeo
+#' @import data.table
+#' @export
+FindClosestGridPoints <- function(pointData, gridData, k = 1L) {
+  lon <- lat <- pointID <- distance <- NULL
+  point<- pointData[, c(lon, lat)]
+  tmp <- gridData[, list(distance = distGeo(point, c(lon, lat))/1000),
+                  by=.(pointID, lat, lon)]
+  setkey(tmp, distance)
+  tmp[1 : k, ]
+}

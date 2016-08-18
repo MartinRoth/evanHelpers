@@ -1,8 +1,9 @@
 Package: evanHelpers
 Title: Helpers for Extreme Value Analysis of Natural Hazards
-Version: 0.0.0.9004
+Version: 0.0.0.9005
 Authors@R: person("Martin", "Roth", email = "roth@knmi.nl", role = c("aut", "cre"))
 Description: What the package does (one paragraph).
+Date: 2016-08-18
 Depends:
     R (>= 3.2.2),
     gamlss
@@ -12,7 +13,8 @@ Imports:
     sp,
     rgdal,
     rgeos,
-    raster
+    raster,
+    geosphere
 License: GPL
 LazyData: true
 RoxygenNote: 5.0.1
